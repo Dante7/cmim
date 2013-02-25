@@ -1,0 +1,67 @@
+{% extends "index.html" %}
+{% block section %}
+
+<section id='principal'>
+<h3>
+
+Bienvenido Dr: {{ request.session.nombre }}
+{{ request.session.apellidos }}
+
+</h3>
+
+<nav>
+	<ul id="menu">
+		<a href="../../perfil"><li id="perfil">Perfil</li></a>
+		<a href="../../anualidades"><li id="anualidades">Anualidades</li></a>
+		<a href="../../cursos"><li id="cursos">Cursos</li></a>
+		<a href="#"><li id="promociones">Promociones</li></a>
+		<a href="#"><li id="salir">Salir</li></a>
+	</ul>
+</nav>
+
+<table id='variable'>
+	<tr>
+		<td id='var_submenu'>
+		{% if lista %}
+			<article id="submenu">
+				<ul>
+					{% for item in lista %}
+						<a href="../../{{item.submenu}}"><li>{{item.submenu}}</li></a>
+					{% endfor %}
+				</ul>
+				
+			</article>
+		{% endif %}
+		</td>
+
+		<td id='var_submenu'>
+		{% if form %}
+			<article id='formulario'>
+
+				<form method="post" > 
+					{% csrf_token %}
+					<table>
+						{% for field in form %}
+							<tr>							
+								<td>{{ field.label_tag }}:</td>
+				            	<td>{{ field }}
+								{% if form.errors %}
+									{{ field.errors }}
+									{{ form.error|striptags }}
+								{% endif %}
+								</td>
+				        	</tr>
+				    	{% endfor %}
+			    	</table>
+					<input type="submit">
+				</form>
+
+			</article>
+		{% endif %}
+		</td>
+	</tr>
+</table>
+
+</section>
+
+{% endblock %}

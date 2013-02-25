@@ -1,0 +1,40 @@
+{% extends "index.html" %}
+{% block section %}
+
+<section>
+
+	<form id="registro" method="post" class="box login">
+		{% csrf_token %}
+		<fieldset class="boxBody">		
+				<h4>
+					<a class="tooltip" href="#">Formulario de registro de datos
+					<span class="custom info"><img src="{{ STATIC_PREFIX }}templates/css/Info.png" alt="Information"/>Necesita capturar los siguientes datos para poder acceder a la aplicacion</span>
+					</a>
+				</h4>
+
+				{{ form.mail.label_tag }}
+				{% if form.errors %}
+					<a class="tooltip" href="#">**<span class="custom warning"><img src="{{ STATIC_PREFIX }}templates/css/Warning.png" alt="Information"/>{{ form.mail.errors }}</span></a>					
+				{% endif %}
+				{{ form.mail }}
+
+				{{ form.nombre.label_tag }}
+				{% if form.errors %}					
+					<a class="tooltip" href="#">**<span class="custom warning"><img src="{{ STATIC_PREFIX }}templates/css/Warning.png" alt="Information"/>{{ form.nombre.errors }}</span></a>					
+				{% endif %}
+				{{ form.nombre }}
+			
+			
+				{{ form.apellidos.label_tag }}
+				{% if form.errors %}
+					<a class="tooltip" href="#">**<span class="custom warning"><img src="{{ STATIC_PREFIX }}templates/css/Warning.png" alt="Information"/>{{ form.apellidos.errors }}</span></a>
+				{% endif %}
+				{{ form.apellidos }}
+			
+			<input type="submit" value="Registrar">
+		</fieldset>
+	</form>
+
+</section>
+	
+{% endblock %}	

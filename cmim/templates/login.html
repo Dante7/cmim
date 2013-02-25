@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        {% load static %}
+        {% get_static_prefix as STATIC_PREFIX %}
+		<meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+
+        <link rel="stylesheet" href="{{ STATIC_PREFIX }}templates/css/style.css"/>
+        <link rel="stylesheet" href="{{ STATIC_PREFIX }}templates/css/structure.css" />
+
+        <script src="{{ STATIC_PREFIX }}templates/js/jquery.js"></script>   
+        <script src="{{ STATIC_PREFIX }}templates/js/censo.js"></script>
+
+        <title>Censo</title>      
+    </head>
+    <body> 
+
+		<form class="box login" method="POST">
+			<fieldset class="boxBody">
+				<img class="main" src="{{ STATIC_PREFIX }}templates/css/logo_home.png" alt="cmim" />
+
+				{{ form.mail.label_tag }}
+				{% if form.errors %}
+					<a class="tooltip" href="#">**<span class="custom warning"><img src="{{ STATIC_PREFIX }}templates/css/Warning.png" alt="Information"/>{{ form.mail.errors }}</span></a>					
+				{% endif %}
+				{{ form.mail }}
+
+				{{ form.password.label_tag }}
+				{% if form.errors %}
+					<a class="tooltip" href="#">**<span class="custom warning"><img src="{{ STATIC_PREFIX }}templates/css/Warning.png" alt="Information"/>{{ form.password.errors }}</span></a>					
+				{% endif %}
+				{{ form.password }}
+
+				<input type="submit" class="btnLogin" value="Login" tabindex="4">
+				<a href="registro" class="rLink" tabindex="3">¿No te encuentras registrado?</a>
+			</fieldset>
+		</form>
+
+    </body>
+</html>

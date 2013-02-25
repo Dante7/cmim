@@ -1,0 +1,12 @@
+
+{% block section %}
+<section id="submenu">
+	<ul>
+		{% for item in lista %}
+			<a href="../../{{item.submenu}}"><li>{{item.submenu}}</li></a>
+		{% endfor %}
+	</ul>
+	
+</section>
+{% endblock  %}
+

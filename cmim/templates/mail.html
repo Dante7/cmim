@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        {% load static %}
+        {% get_static_prefix as STATIC_PREFIX %}
+		<meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+
+        <link rel="stylesheet" href="{{ STATIC_PREFIX }}templates/css/style.css"/>
+        <link rel="stylesheet" href="{{ STATIC_PREFIX }}templates/css/structure.css" />
+
+        <script src="{{ STATIC_PREFIX }}templates/js/jquery.js"></script>   
+        <script src="{{ STATIC_PREFIX }}templates/js/censo.js"></script>
+
+        <title>Mail</title>      
+    </head>
+    <body>
+
+		<p>
+			Estimado Dr. {{lista.nombre}}
+						{{lista.apellidos}}
+			<br />
+			<br />
+			Te agradecemos que te hayas registrado, con los datos que te presentamos a continuación podrás ingresar y actualizar tus datos de contacto. Esta infomración nos servirá para identificarte en los eventos organizados por el Colegio. 
+			En caso de que desees realizar tu pago por anualidades y el paquete de Curso Internacional y Congreso Nacional, llena los formatos y  te enviaremos tu número de de pago referenciado.
+			<br />
+			<br />
+			¡Bienvenido!
+			<br />
+			<br />
+			Mesa Directiva 2013
+			<br />
+			<br />
+			Usuario: {{lista.mail}}
+			<br />
+			Pass: {{lista.password}}
+		</p>
+
+		<img id='imgmail' src="cid:image1" alt="CMIM" />
+
+    </body>
+</html>
